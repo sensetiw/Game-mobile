@@ -1,12 +1,14 @@
 {
-  "name": "telegram-test-bot",
-  "version": "1.0.0",
-  "description": "Простой тестовый Telegram-бот на Telegraf для Render Web Service (long polling)",
+  "name": "game-mobile-bot",
+  "version": "2.0.0",
+  "description": "Модульный Telegram-бот (связи, покупки, Alias) на Telegraf + SQLite",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "check": "node --check index.js && node --check src/bot.js"
   },
   "dependencies": {
+    "better-sqlite3": "^11.7.0",
     "telegraf": "^4.16.3"
   }
 }
