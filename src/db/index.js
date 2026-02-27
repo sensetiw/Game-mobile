@@ -77,6 +77,20 @@ CREATE TABLE IF NOT EXISTS alias_sessions (
   updated_at INTEGER NOT NULL,
   created_at INTEGER NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS tasks (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  creator_id INTEGER NOT NULL,
+  executor_id INTEGER NOT NULL,
+  text TEXT NOT NULL,
+  due_at INTEGER,
+  status TEXT NOT NULL,
+  remind_stage INTEGER NOT NULL DEFAULT 0,
+  reminders_sent_count INTEGER NOT NULL DEFAULT 0,
+  next_remind_at INTEGER,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
 `);
 
 function now() {
