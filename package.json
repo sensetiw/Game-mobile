@@ -1,0 +1,12 @@
+{
+  "name": "telegram-test-bot",
+  "version": "1.0.0",
+  "description": "Простой тестовый Telegram-бот на Telegraf для Render Web Service (long polling)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "telegraf": "^4.16.3"
+  }
+}
