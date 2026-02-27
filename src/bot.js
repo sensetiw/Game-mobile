@@ -5,6 +5,8 @@ const { mainMenu } = require('./keyboards/reply');
 const { registerConnections } = require('./modules/connections');
 const { registerShopping } = require('./modules/shopping');
 const { registerAlias } = require('./modules/games/alias');
+const { registerTasks } = require('./modules/tasks');
+const { registerCoin } = require('./modules/coin');
 
 const bot = new Telegraf(BOT_TOKEN);
 
@@ -14,7 +16,7 @@ bot.use(async (ctx, next) => {
 });
 
 bot.start(async (ctx) => {
-  await ctx.reply('Привет! Это модульная платформа-бот: связи, покупки-заказы и Alias.', mainMenu);
+  await ctx.reply('Привет! Это модульная платформа-бот: связи, покупки, задания, игры и утилиты.', mainMenu);
 });
 
 bot.hears('❓ Помощь', async (ctx) => {
@@ -22,7 +24,9 @@ bot.hears('❓ Помощь', async (ctx) => {
     'Разделы:',
     '👥 Связи — привязка по одноразовому коду с подтверждением.',
     '🛒 Покупки — список от создателя к исполнителю.',
+    '📋 Задания — задачи с дедлайнами и напоминаниями.',
     '🎮 Игры — Alias по уровням сложности.',
+    '🪙 Монетка — Орёл/Решка и серии бросков.',
     '⚙️ Настройки — разорвать связь.',
   ].join('\n'), mainMenu);
 });
@@ -55,6 +59,8 @@ bot.action('settings:unlink', async (ctx) => {
 
 registerConnections(bot);
 registerShopping(bot);
+registerTasks(bot);
 registerAlias(bot);
+registerCoin(bot);
 
 module.exports = { bot };
